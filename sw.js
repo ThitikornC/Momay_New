@@ -170,7 +170,7 @@ self.addEventListener('pushsubscriptionchange', async event => {
   const applicationServerKey = urlBase64ToUint8Array('BB2fZ3NOzkWDKOi8H5jhbwICDTv760wIB6ZD2PwmXcUA_B5QXkXtely4b4JZ5v5b88VX1jKa7kRfr94nxqiksqY');
   event.waitUntil(
     self.registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey })
-      .then(newSub => fetch('https://momaydocbn-production.up.railway.app/api/subscribe', {
+      .then(newSub => fetch('https://momatdeerbn-production.up.railway.app/api/subscribe', {
         method: 'POST',
         body: JSON.stringify(newSub),
         headers: { 'Content-Type': 'application/json' }

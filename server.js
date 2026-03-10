@@ -51,6 +51,8 @@ function getContentType(filePath) {
     case '.jpeg': return 'image/jpeg';
     case '.svg': return 'image/svg+xml';
     case '.ico': return 'image/x-icon';
+    case '.glb': return 'model/gltf-binary';
+    case '.gltf': return 'model/gltf+json';
     default: return 'application/octet-stream';
   }
 }

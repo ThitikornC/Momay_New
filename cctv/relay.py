@@ -27,7 +27,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ─── Config ───
-RTSP_URL     = os.getenv("RTSP_URL", "rtsp://admin:Ice08881t0287@192.168.1.72:554/cam/realmonitor?channel=1&subtype=1")
+RTSP_URL     = os.getenv("RTSP_URL", "rtsp://admin:Ice08881t0287@172.20.10.8:554/cam/realmonitor?channel=1&subtype=1")
 SERVER_URL   = os.getenv("SERVER_URL", "ws://localhost:8000/ws/relay")
 RELAY_KEY    = os.getenv("RELAY_KEY", "changeme")
 FRAME_WIDTH  = int(os.getenv("FRAME_WIDTH", "640"))

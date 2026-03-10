@@ -153,11 +153,11 @@ document.addEventListener('DOMContentLoaded', async function() {
   };
 
   // API base URL (declare early so functions can use it immediately)
-  const API_BASE = 'https://momaydocbn-production.up.railway.app';
+  const API_BASE = 'https://momatdeerbn-production.up.railway.app';
 
   // ================= Room Management =================
-  // Only ห้อง101โถงชั้น1 has real data; others are empty placeholders
-  const PRIMARY_ROOM = 'ห้อง101โถงชั้น1';
+  // Only House has real data; others are empty placeholders
+  const PRIMARY_ROOM = 'House';
   let currentRoom = PRIMARY_ROOM;
 
   function isRoomWithData(roomName) {
@@ -785,7 +785,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       cache._powerFetching = true;
 
       // Fetch latest in background (stale-while-revalidate)
-      fetch(`${API_BASE}/daily-energy/pm_doc?date=` + localDate)
+      fetch(`${API_BASE}/daily-energy/pm_deer?date=` + localDate)
         .then(res => res.json())
         .then(json => {
           const data = json.data || [];
@@ -1000,7 +1000,7 @@ async function fetchDailyData(date){
             let combined = [];
             for (const dstr of fetchDates) {
               try {
-                const r = await fetch(`${API_BASE}/daily-energy/pm_doc?date=${dstr}`);
+                const r = await fetch(`${API_BASE}/daily-energy/pm_deer?date=${dstr}`);
                 const j = await r.json();
                 combined = combined.concat(j.data ?? []);
               } catch(e) { /* ignore per-day failure */ }
@@ -1031,7 +1031,7 @@ async function fetchDailyData(date){
     let combined = [];
     for (const dstr of fetchDates) {
       try {
-        const res = await fetch(`${API_BASE}/daily-energy/pm_doc?date=${dstr}`);
+        const res = await fetch(`${API_BASE}/daily-energy/pm_deer?date=${dstr}`);
         const json = await res.json();
         combined = combined.concat(json.data ?? []);
       } catch (e) {
@@ -2892,7 +2892,7 @@ if ('Notification' in window && Notification.permission === 'default') {
     if (!res.ok) throw new Error("Network response was not ok");
     const json = await res.json();
 
-    const energyRes = await fetch(`${API_BASE}/daily-energy/pm_doc?date=${apiDate}`);
+    const energyRes = await fetch(`${API_BASE}/daily-energy/pm_deer?date=${apiDate}`);
     const energyJson = await energyRes.json();
     const energyData = energyJson.data || [];
 
@@ -3355,7 +3355,7 @@ if ('Notification' in window && Notification.permission === 'default') {
   (function setupRoomSwipe() {
     const track = document.querySelector('.page-track');
     if (!track) return;
-    const roomList = ['ห้อง101โถงชั้น1', 'ห้อง200', 'ห้อง300'];
+    const roomList = ['House', 'room1', 'room2'];
     let startX = 0;
     let dragging = false;
     const threshold = 80;
