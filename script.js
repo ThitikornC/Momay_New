@@ -3071,6 +3071,11 @@ if ('Notification' in window && Notification.permission === 'default') {
   const shareReportBtn = document.getElementById("shareReportBtn");
   const cancelReportBtn = document.getElementById("cancelReportBtn");
 
+  // Move modal under <body> so it is not trapped by parent stacking contexts.
+  if (reportModal && reportModal.parentElement !== document.body) {
+    document.body.appendChild(reportModal);
+  }
+
   if (generateReportBtn && reportModal) {
     // กดปุ่ม Report แล้วแสดง Modal เลือก
     generateReportBtn.addEventListener("click", async () => {
