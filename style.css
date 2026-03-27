@@ -3895,7 +3895,9 @@ font-size: 14px;
   html {
     zoom: 2;                
   }
-
+.some-text {
+  font-size: 200%;
+}
   #calendarPopup #calendar {
     zoom: 0.9;
   }
